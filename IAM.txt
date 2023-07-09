@@ -1,0 +1,69 @@
+IAM - IAM is identity and management service which is used to manages users, create groups, apply permissison for the users. This service is created by root users in our account by default and shoundt be shared.
+We can create groups using this service. A groups allows users of a same department to be in. Lest say we have 5 people and from there 2 people belong to devlopment and 2 belongs to testing. So we will put 2 people in Developement group and 2 in Testing.
+Now here we can have a user in no group but its not a good practice. Why?
+
+In group we can have policies like permissions whicc will tell users what they can do with their account or what they cannot. these permissions are written JSON. Pretty easy to understand. Now in group we can have a permissino / policie and it will automatically be applied to the users of the group. If the users left the policies will be removed as well.
+
+We can have users in multiple groups like in above example if 1 user of  both team is manager we can create new group called manager and have them inside it. Also give them managerial permissions.
+
+Why its not a good practice to not have someone in group. When the users is created its created with least privilages. Meaning it cannot do basically anything which is useless. SO if we dont have the users in any group then we need to mnually apply/give the permission/policies to them and this is time taking process.
+
+Policies attact to the single users is called as inline policies.
+Policies - They are permissions which will allows users to do stuff with their account. Policies can be deny or allow based.
+IAM policies Structure -
+Version - this is when the policy was created or which version of the policy it is.
+Id - it is the id of policy Optional.
+Statement - this is where we write actual policy which tells users to allow or deny things.
+Statement consits of -
+Sid - statement id this the id of the statement optional.
+Effect - this is where we difine if the statement will allow or deny.
+Principal - Account/users/roles to which this policy is attached.
+Action - what this statement will do. Like DescribeBucket or getObject.
+Resource - this is from where or which service the above action will take palce.
+
+IAM MFA - MFA is a multi factor authentication. This makes our account more safe because lets say if a hacker got the password but the hacker cannot now access the account because it also needs to get access of my phone or any device which has my MFA on.
+There are many MFA device whihc aws allows. 
+Virtual MFA Device - Google Authenticator and Authy.
+U2F universal 2nd Factor  Security key - Yubikey.
+HardWare Key Fob MFA Device - provided by Gemalto 3rd Party
+HardWare Key Fob MFA Device AWS GovCloud US - Provided by SurePassID 3rd Party
+
+We can set Password Policy for the users. They are basically a rule that how long there password should be or after how many days they should change their password.
+
+How can users access AWS - 
+There are 3 ways to do that -
+Using web browser. Using Username and password
+Using Command Line Interface - CLI this users accessKey.
+Using SDK - this also uses accessKey.
+
+What are AccessKEy and Secret Access key - these are same as username and password but its a alphanumeric key. While creating an user this will be visible only once. If you dont save them there you wont be able to use that account then.
+Using CLI the way they are setup is you need to save them in enviroment variabels or install aws cli and using the cli now you need to run some command to save them.
+
+SDK - it is Software Development Kit. We can use accessKey so our apps can now talk to AWS using api. These apis will let our app to make changes or see whats goingon in aws. 
+The apis are language based or language specific. Which means they can changes accroding to the language you used.
+
+CloudShell - CloudShell is a AWS CLI where you dont have to configure anything its already configured based on your account permissions and the region your account is.
+The api calls are the same way you would do if you would have used lets say windows or Linux CLI.
+AWS actaully preffers this if you want to user terminal.
+There are many feature like if you want to save some file it will be there even if you restrat it. Or you can download or upload files from your computes with a click of a button.
+
+IAM Roles - These are just like policies that we attach to our users but these are only for services. Just like user we can attach permission to services also. In future there will be a time where some services needs permission or policies which are in this case called Roles to access other services.
+Common roles - EC2 Instance Role
+Lambda Function Role
+Roels for CLoudFormation
+
+IAM Secutiry TOol - 
+IAM Credential Report (Account-level) this is a report which list all your users and status of their various credential. This report will show if the users have strong security as well.
+
+IAM Access Advisor (user-leve) - Access advisor shows the permission which were last access by the user and also which services were last accessed by the users. So by looking at this we can eleminated the services or permission which user dotn user.
+Lets say the user have EC2 access. But the user never used it in there project we can jsut get the report of all the users and see which users need which permissions.
+You can use this information to revise your policies.
+
+IAM Best Practices - 
+Dont user root account for everything this account must be only used for billing purposes and creating admin account.
+Dont share your password to anyone. If they dont have account create one for them.
+Assign users to group and assign permission to group
+Create strong password policies
+Use and enforce Multi Factor Authentication
+Creatr and use Roles for giving permission Access
+Audit permission of your accout using IAM Credential Report and IAM Access Adivisor.
