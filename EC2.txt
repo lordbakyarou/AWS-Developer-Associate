@@ -1,0 +1,78 @@
+EC2 - Elastic compute cloud is a service where you can launch a OS like linux, windows, mac on cloud in a blink of an eye.
+This service will allow you to access the linux instance and you will be able to use it or modify update the contents inside the instance. 
+In free teir you will get a 30Gb of free space using EBS - Elactic Block Storage thsi will be attached to your instance and here you can save file and stop the instance and still you will have your files due to this.
+There are many type of EC2 isntances you can launch like the free tier is t2.micro where you will get 1gb of memroy, 1vCPU and EBS storage etc. Like wise if you choose different isntnace like t2.large you will get more memory and cpu etc.
+THe more you go the more you pay. In free tier you have 750Hr free a month.
+
+UserData - This is where you can have a script and it will run only the first time the instace is created. This script can be like install a software or chcek of update of any software yo uinstall. And many things we can do like create a file and save it.
+This is used whenever we want prerequisiets you be downloaded before we access a system.
+
+SSH - Secure shell is a network protocol whihc will allows you to remotely connect to differnet computer in different region using SSH. It provides a secure encrypted connection between you and your clietn. We can login into our aws account using an SSH for that we need a pem or ppk file. And username and password of the file. Its also used to transfer files.
+
+EC2 instances - We have standard 4 types of instace type wchi will be heavily used according to the requirement of the client ike if they want something fast accordingly we want a system which has more ram and network speed.
+Below are the intances type- 
+
+General Purpose - General Purpose instance are used for all of the things and its the most commanly used instace type. They have great diversity and great balance between memory, compute, networking.
+
+Compute Optimised - These instances type are great for high performance computing like gaming servers or livestreaming task. They are used for batch processing workload, Media transcoding, high performance web servers, High performance computing, Scientific modeling and machine learning, Dedicated Gaming servers.
+
+Memory Optimized - These instances are highly used where you have to frequently read or write data in data sets and used for caches you get commanly used data. Use cases are High performance, relation/non-relation database, Distributed web scale cache stores, In-Memory databases optmised for BI and application performing real time processing of big unstructured data.
+
+
+Storage Optimised - Greate for storeage intensed task that required high sequential read and writed access to large data sets on local storage.
+
+Use case are high frequency online transaction processing OLTP system.
+Relational and NOSQL database
+Cache for in-memory database like redis. Data warehousing applicaion, Distributed file systesm.
+
+Security Group - they are firewall for our instance they will control how network will flow outisde and inside of our instance. There are some ruels we can configure in a security group which will have what ips  or other security group we want to allow. and attach this security group to our instance.
+Now the ips with only containing listed ips and security group will be allowed by our instnace everyone else is denied.
+Security group will only have Allow rules. 
+Incomming traffic and outgoing traffic are know as inbound and outbound traffic.
+By default all inbound traffic are blocked and all outbound traffic are allows. Outbount traffic is what goes out of the instace like ping google.com we can since all outbound traffic are allows.
+
+Security group works on Ip, port, another security Group, Protocol and type of connection. Meaning we can block and allow anyone on these ruesl. like only allow TCP protocol.
+
+Classic ports to know - SSH - 22 port used to log into a linux instance
+FTP - file transfer protcol - 21 - upload file into a file share
+SFTP - secure file transfer prtocol - 22 uploadin using SSH
+HTTP - 80 - access to unsecured website
+HTTPS - 443 - Access to secured website
+RDP - remote desktop protocol - 3389 - log into windows instance.
+
+EC2 instance purchasing types - 
+EC2 on Demand -  It is a pay for what you use. The instances are billeded on the amount of hour you are using.
+It has the highest cost but no upfront payment. You dont have long term commitment. Its recommneded for short term and un inturreupted workloads where you cant predit how the applicatoin will behave.
+
+EC2 Reserved Instance - Using this plan you can get upto 72% off compared to OnDeman instaces. But you need to be reserved for 1 or 3 years. The more years you reserved the more discount you get.
+And the fast you pay the more discount you get.
+Reserved instance scope - Regional or Zonal reserved capacity in AZ.
+Recommended for steady-state usage applications
+You can buy and sell in the reserved instance marketplace.
+Convertible Reserved Instance - Can change the EC2 instance type, instance family, OS, Scope and tenancy.
+
+EC2 Saving Plans - Get a discount based on long-term usage (up to 72% - same as RIs)
+Commit to a certain type of usage, Usage beyong EC2 Saving plan will be billed at the on demand prices
+
+You are locked to a specific instance family and AWS Region.
+Flexible across instance size, OS Tenancy.
+
+EC2 Spot instance - 
+Can get a discount of up to 90% compared to On-Demand
+Instances that you can lose at any point of time if yuor max price is less than the currsnt price.
+Th most cost efficient instnaces in AWS.
+Usefull for Batch jobs, Data analysis, Image processing, Any distrivbuted workloads, Workloads with a flexile start and end time.
+Not suitable for critical jobs or databse.
+
+EC2 Dedicated Hosts - 
+A physical served with EC2 instance capacity fully dedicated to your use. 
+Allows you address compliance requirement and use your existing server-Bound software license (per-socket, per-core,pe-VM software)
+Purchasing option - On-Demand-pay per second for active dedicated host
+Reserved - 1 or 3 years (No upfront, partial upfront all upfront)
+The most expensive option.
+
+UseFul for software that have complicated licensing mode
+Or for companised that have strong regulatory or complience needs.
+
+EC2 Dedicated Instance - Instances run on hardware that's dedicated to you. May share hardware with other instances in same account.
+No control over instance placement.
